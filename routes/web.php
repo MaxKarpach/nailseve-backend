@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceItemController;
+use App\Http\Controllers\WorkController;
+use App\Http\Controllers\WorkDescriptionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\ReviewController;
@@ -17,3 +21,7 @@ Route::post('/api/chooseDate', [DateController::class, 'choose'])
     ->withoutMiddleware([VerifyCsrfToken::class]);;
 Route::post('/api/chooseTime', [TimeController::class, 'choose'])
     ->withoutMiddleware([VerifyCsrfToken::class]);;
+Route::get('/api/works', [WorkController::class, 'index']);
+Route::get('/api/workDescriptions', [WorkDescriptionController::class, 'index']);
+Route::get('/api/services', [ServiceController::class, 'index']);
+Route::get('/api/serviceItems', [ServiceItemController::class, 'index']);
