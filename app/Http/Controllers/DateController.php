@@ -35,4 +35,17 @@ class DateController extends Controller
         );
     }
 
+    public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'date' => 'required|string',
+        ]);
+
+        
+
+        $review = $this->dateService->createDate($validated);
+    
+    }
+
 }

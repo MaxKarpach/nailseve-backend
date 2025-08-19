@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkDescription extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'works_description';
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'services';
 
@@ -17,6 +17,6 @@ class Service extends Model
 
     public function items()
     {
-        return $this->hasMany(ServiceItem::class, 'serviceId');
+        return $this->hasMany(ServiceItem::class, 'service_id');
     }
 }

@@ -21,4 +21,19 @@ class ServiceItemController extends Controller
         );
     }
 
+    public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'text' => 'required|string',
+            'price' => 'required|integer',
+            'service_id' => 'required|integer',
+        ]);
+
+        
+
+        $serviceItem = $this->serviceItemService->createServiceItem($validated);
+    
+    }
+
 }

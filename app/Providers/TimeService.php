@@ -25,4 +25,10 @@ class TimeService
         return $time;
     }
 
+    public function createTime(array $data)
+    {
+        return Time::create($data);
+    }
+
+
 }

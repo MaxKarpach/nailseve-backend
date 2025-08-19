@@ -21,4 +21,24 @@ class ServiceController extends Controller
         );
     }
 
+    public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        
+
+        $service = $this->serviceService->createService($validated);
+    
+    }
+
+    public function indexWithItems()
+    {
+        return response()->json(
+            $this->serviceService->getAllServicesWithItems()
+        );
+    }
+
 }

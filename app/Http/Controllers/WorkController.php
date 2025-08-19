@@ -21,4 +21,25 @@ class WorkController extends Controller
         );
     }
 
+    public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'img' => 'required|string',
+            'price' => 'required|integer',
+        ]);
+
+        
+
+        $work = $this->workService->createWork($validated);
+    
+    }
+
+    public function indexWithDescriptions()
+    {
+        return response()->json(
+            $this->workService->getAllWorksWithDescriptions()
+        );
+    }
+
 }

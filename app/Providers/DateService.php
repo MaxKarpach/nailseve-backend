@@ -25,4 +25,9 @@ class DateService
         return $date;
     }
 
+        public function createDate(array $data)
+    {
+        return Date::create($data);
+    }
+
 }

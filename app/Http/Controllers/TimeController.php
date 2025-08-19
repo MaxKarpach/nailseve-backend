@@ -35,4 +35,17 @@ class TimeController extends Controller
         );
     }
 
+        public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'time' => 'required|string',
+        ]);
+
+        
+
+        $review = $this->timeService->createTime($validated);
+    
+    }
+
 }

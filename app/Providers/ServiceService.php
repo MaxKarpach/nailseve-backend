@@ -10,4 +10,14 @@ class ServiceService
     {
         return Service::all();
     }
+
+    public function createService(array $data)
+    {
+        return Service::create($data);
+    }
+
+    public function getAllServicesWithItems()
+    {
+        return Service::with('items')->get();
+    }
 }

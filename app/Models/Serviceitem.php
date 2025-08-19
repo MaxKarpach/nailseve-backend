@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceItem extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'services_item';
 
     protected $fillable = [
+        'service_id',
         'text',
-        'price',
-        'serviceId',
+        'price'
     ];
 
     public function service()
     {
-        return $this->belongsTo(Service::class, 'serviceId');
+        return $this->belongsTo(Service::class, 'service_id');
     }
 }

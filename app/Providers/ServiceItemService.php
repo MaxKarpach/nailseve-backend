@@ -10,4 +10,9 @@ class ServiceItemService
     {
         return ServiceItem::all();
     }
+
+    public function createServiceItem(array $data)
+    {
+        return ServiceItem::create($data);
+    }
 }

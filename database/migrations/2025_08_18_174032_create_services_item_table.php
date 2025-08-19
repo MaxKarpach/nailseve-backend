@@ -13,7 +13,6 @@ return new class extends Migration
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->string('text');
             $table->integer('price');
-            $table->integer('serviceId');
         });
     }
 

@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Date extends Model
 {
-    use HasFactory;
+
+    public $timestamps = false;
     protected $table = 'dates';
 
     protected $fillable = [

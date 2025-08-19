@@ -7,18 +7,32 @@ use App\Providers\WorkDescriptionService;
 
 class WorkDescriptionController extends Controller
 {
-    private $workDesciptionService;
+    private $workDescriptionService;
 
      public function __construct(WorkDescriptionService $workDesciptionService)
     {
-        $this->workDesciptionService = $workDesciptionService;
+        $this->workDescriptionService = $workDesciptionService;
     }
 
     public function index()
     {
         return response()->json(
-            $this->workDesciptionService->getAllWorkDescriptions()
+            $this->workDescriptionService->getAllWorkDescriptions()
         );
+    }
+
+    public function store(Request $request)
+    {
+
+        $validated = $request->validate([
+            'work_id' => 'required|integer',
+            'text' => 'required|string',
+        ]);
+
+        
+
+        $workDescriprion = $this->workDescriptionService->createWorkDescription($validated);
+    
     }
 
 }

@@ -10,4 +10,8 @@ class WorkDescriptionService
     {
         return WorkDescription::all();
     }
+    public function createWorkDescription(array $data)
+    {
+        return WorkDescription::create($data);
+    }
 }
