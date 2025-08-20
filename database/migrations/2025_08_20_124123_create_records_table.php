@@ -10,8 +10,7 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string('time');
+            $table->foreignId('time_id')->constrained('times')->onDelete('cascade');
         });
     }
 

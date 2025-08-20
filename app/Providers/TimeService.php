@@ -16,6 +16,11 @@ class TimeService
         return Time::where('isAlreadyChosen', true)->get();
     }
 
+    public function getFreeTimes()
+    {
+        return Time::where('isAlreadyChosen', false)->get();
+    }
+
     public function chooseTime(int $id)
     {
         $time = Time::findOrFail($id);

@@ -11,8 +11,10 @@ return new class extends Migration
         Schema::create('times', function (Blueprint $table) {
             $table->id();
             $table->string('time');
+            $table->string('date');
             $table->boolean('isAlreadyChosen')->default(false);
         });
+
     }
 
     public function down(): void

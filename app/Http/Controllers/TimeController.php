@@ -28,6 +28,13 @@ class TimeController extends Controller
         );
     }
 
+    public function getFreeTimes()
+    {
+        return response()->json(
+            $this->timeService->getFreeTimes()
+        );
+    }
+
     public function chooseTime(int $id)
     {
         return response()->json(
@@ -40,6 +47,7 @@ class TimeController extends Controller
 
         $validated = $request->validate([
             'time' => 'required|string',
+            'date' => 'required|string',
         ]);
 
         

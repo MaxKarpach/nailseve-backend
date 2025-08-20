@@ -12,6 +12,6 @@ class Time extends Model
 
     protected $fillable = [
         'time',
-        'isAlreadyChosen'
+        'date'
     ];
 }

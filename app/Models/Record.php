@@ -12,13 +12,17 @@ class Record extends Model
     protected $table = 'records';
 
     protected $fillable = [
-        'date',
-        'time'
+        'time_id'
     ];
 
 public function items()
 {
     return $this->belongsToMany(ServiceItem::class, 'record_service_items', 'record_id', 'service_item_id');
+}
+
+public function time()
+{
+    return $this->belongsTo(Time::class);
 }
 
 }

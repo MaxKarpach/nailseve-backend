@@ -23,9 +23,8 @@ class RecordController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'date' => 'required|string',
-            'time' => 'required|string',
-            'items' => 'required|array',
+            'time_id' => 'required|integer|exists:times,id',
+            'items'   => 'required|array',
             'items.*' => 'integer|exists:service_items,id',
         ]);
 

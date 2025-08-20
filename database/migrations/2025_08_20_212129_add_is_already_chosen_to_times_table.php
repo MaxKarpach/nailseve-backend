@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('dates', function (Blueprint $table) {
-            $table->id();
-            $table->string('date');
-            $table->boolean('isAlreadyChosen')->default(false);
+        Schema::table('times', function (Blueprint $table) {
+            $table->boolean('isAlreadyChosen')->default(false)->after('date');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('dates');
+        Schema::table('times', function (Blueprint $table) {
+            $table->dropColumn('isAlreadyChosen');
+        });
     }
 };
