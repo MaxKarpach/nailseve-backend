@@ -8,16 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('service_items', function (Blueprint $table) {
+        Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
-            $table->string('text');
-            $table->integer('price');
+            $table->string('date');
+            $table->string('time');
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('service_items');
+        Schema::dropIfExists('records');
     }
 };

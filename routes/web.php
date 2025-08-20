@@ -9,6 +9,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\TimeController;
+use App\Http\Controllers\RecordController;
 
 Route::get('/api/reviews', [ReviewController::class, 'index']);
 Route::post('/api/reviews', [ReviewController::class, 'store'])
@@ -35,3 +36,6 @@ Route::post('/api/serviceItems', [ServiceItemController::class, 'store'])
     ->withoutMiddleware([VerifyCsrfToken::class]);
 Route::get('/api/servicesWithItems', [ServiceController::class, 'indexWithItems']);
 Route::get('/api/worksWithDescriptions', [WorkController::class, 'indexWithDescriptions']);
+Route::get('/api/records', [RecordController::class, 'index']);
+Route::post('/api/records', [RecordController::class, 'store'])
+    ->withoutMiddleware([VerifyCsrfToken::class]);

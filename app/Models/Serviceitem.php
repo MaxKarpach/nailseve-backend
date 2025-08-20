@@ -9,7 +9,7 @@ class ServiceItem extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'services_item';
+    protected $table = 'service_items';
 
     protected $fillable = [
         'service_id',
@@ -21,4 +21,10 @@ class ServiceItem extends Model
     {
         return $this->belongsTo(Service::class, 'service_id');
     }
+
+public function records()
+{
+    return $this->belongsToMany(Record::class, 'record_service_items', 'service_item_id', 'record_id');
+}
+
 }
