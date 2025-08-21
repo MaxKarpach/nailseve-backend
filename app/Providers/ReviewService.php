@@ -8,7 +8,7 @@ class ReviewService
 {
     public function getAllReviews()
     {
-        return Review::all();
+      return Review::orderBy('id', 'desc')->get();
     }
 
     public function createReview(array $data)
